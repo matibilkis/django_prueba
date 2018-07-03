@@ -1,0 +1,28 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<h1>Lista de alumnos</h1>
+
+{% if alumno_list %}
+  <ul>
+
+  {% for a in alumno_list %}
+    <li>
+      <a href="{{ a.get_absolute_url }}">
+        {{a.nombre}}
+      </a>
+    </li>
+  {% endfor %}
+
+ </ul>
+{% else %}
+  <p>No hay alumnos...</p>
+{% endif %}
+
+<div>
+<p> Crear alumnos nuevos <a href="{% url 'crea' %}">aquí</a></p>
+</div>
+
+
+{% endblock %}
